@@ -1,0 +1,6 @@
+FROM nginx:1.23.2
+
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+# COPY ./api /app/
+
+WORKDIR /app
