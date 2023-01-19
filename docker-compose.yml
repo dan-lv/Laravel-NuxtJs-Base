@@ -72,7 +72,7 @@ services:
       - ${PWD}/client/.:/app
     environment:
       NUXT_HOST: 0.0.0.0
-    # command: sh /docker-entrypoint.sh
+    command: sh /docker-entrypoint.sh
     networks:
       - app-network
 
