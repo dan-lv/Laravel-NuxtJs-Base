@@ -2,13 +2,6 @@
 
 ## Getting started
 
-Clone project:
-
-```shell
-git clone git@gitlab.com:legalscript/start-up.git
-cd ${PROJECT_DIR}/start-up
-```
-
 ## Installation
 
 1. Setup env
@@ -21,7 +14,7 @@ cd ${PROJECT_DIR}/start-up
     APP_ENV=local
     DB_DATABASE=startup
     DB_ROOT_PASSWORD=root
-    MYSQL_HOST_PORT=3306
+    MYSQL_HOST_PORT=33066
 
     REDIS_HOST_PORT=6379
     NGINX_HOST_PORT=8000
@@ -44,16 +37,23 @@ cd ${PROJECT_DIR}/start-up
     YAYOI_SERVICE_ID=
     YAYOI_USER_INFORMATION_URL=
 
-    # setting true if haven't account yayoi
-    LOGIN_NOT_TRANSFER_YAYOI=true
-
-    # Google recapcha
-    RECAPTCHA_SITE_KEY=6LdrN1IfAAAAAKVMo4CFioSC96yPBAt8Pwp-OpP5
-
   ```
 
 - `cp api/.env.example api/.env` and edit the `api/.env` file as:
 
+  Important action is edit connection to DB that is created by `mysql` container
+
+  <!-- Example edit DB connection -->
+
+  `
+    DB_CONNECTION=mysql
+    DB_HOST=mysql
+    DB_PORT=3306
+    DB_DATABASE=startup
+    DB_USERNAME=root
+    DB_PASSWORD=root
+  `
+ 
   Example
 
   ```dotenv
@@ -119,25 +119,6 @@ cd ${PROJECT_DIR}/start-up
     VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
     ALLOWED_ORIGINS=http://localhost:3000
-
-    JWT_ALGO=HS256
-    JWT_SECRET=
-
-    COOKIE_SECURE=false
-    COOKIE_DOMAIN=localhost
-
-    YAYOI_SERVICE_ID=
-    YAYOI_LOGIN_URL=
-    YAYOI_TOKEN_BRIDGE_URL=
-
-    # setting true if haven't account yayoi
-    LOGIN_NOT_TRANSFER_YAYOI=true
-
-
-    # Google recapcha
-    ENABLE_VERIFY_RECAPTCHA=true
-    RECAPTCHA_SECRET_KEY=6LdrN1IfAAAAAFZZUE6UO_VHVNEj483MgRtUOmui
-
   ```
 
   2.Build and up

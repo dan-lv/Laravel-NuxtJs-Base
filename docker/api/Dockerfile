@@ -45,11 +45,11 @@ RUN rm -rf /var/cache/apk/*
 # Add UID '1000' to www-data
 RUN usermod -u 1000 www-data
 
-COPY ./docker/api/docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./api/docker-entrypoint.sh /docker-entrypoint.sh
 
 ARG APP_ENV
 ENV APP_ENV ${APP_ENV}
-COPY ./docker/api/php.ini-development /usr/local/etc/php/php.ini
+COPY ./api/php.ini-development /usr/local/etc/php/php.ini
 
 RUN dos2unix /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
@@ -69,6 +69,6 @@ WORKDIR /app
 
 RUN chown -R www-data:www-data /app
 
-COPY ./docker/api/supervisord.ini /etc/supervisor.d/supervisord.ini
+COPY ./api/supervisord.ini /etc/supervisor.d/supervisord.ini
 
 RUN touch /worker.log

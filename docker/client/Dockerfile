@@ -7,7 +7,7 @@ WORKDIR /app
 ARG APP_ENV
 ENV APP_ENV ${APP_ENV}
 
-COPY ./docker/client/docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./client/docker-entrypoint.sh /docker-entrypoint.sh
 RUN dos2unix /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 EXPOSE 3000
