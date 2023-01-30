@@ -11,6 +11,25 @@
         height="512"
       />
       <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+        <a-dropdown-button @click="handleButtonClick">
+          Dropdown
+          <template #overlay>
+            <a-menu @click="handleMenuClick">
+              <a-menu-item key="1">
+                <UserOutlined />
+                1st menu item
+              </a-menu-item>
+              <a-menu-item key="2">
+                <UserOutlined />
+                2nd menu item
+              </a-menu-item>
+              <a-menu-item key="3">
+                <UserOutlined />
+                3rd item
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown-button>
         <blockquote>
           <p class="text-lg font-medium">
             “Tailwind CSS is the only framework that I've seen scale on large
